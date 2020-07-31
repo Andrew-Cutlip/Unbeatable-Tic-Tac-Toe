@@ -1,14 +1,14 @@
 import time
-from flask import Flask
+from flask import Flask, request
 import math
 
-app = Flask(__name__)
+app = Flask(__main__)
 
 @app.route('/time')
 def get_current_time():
     return {'time': time.time()}
 
-@post('/ai')
+@app.route('/ai', methods=['GET', 'POST'])
 def AI():
     json = request.json
     board = json.board
@@ -173,6 +173,4 @@ def evaluateBoard(board, letter):
         # No win return 0 score
         return 0
             
-
-
-run(host='localhost', port=8080, debug=True)
+app.run(debug=True)

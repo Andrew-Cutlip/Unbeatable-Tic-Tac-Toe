@@ -15,7 +15,7 @@ export default takeOpponentTurn;
 
 function PostRequest(message) {
     var xhr = new XMLHttpRequest();
-    var url = "https://localhost/8080/ai";
+    var url = "/ai";
     xhr.open("POST", url);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
